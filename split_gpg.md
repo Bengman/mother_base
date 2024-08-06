@@ -1,6 +1,6 @@
-https://www.qubes-os.org/doc/split-gpg/
+Reference: https://www.qubes-os.org/doc/split-gpg/
 
-![[Pasted image 20240710145419.png]]
+![](https://www.qubes-os.org/attachment/doc/split-gpg-diagram.png)
 
 ## Configuring Split GPG[](https://www.qubes-os.org/doc/split-gpg/#configuring-split-gpg)
 
