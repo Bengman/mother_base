@@ -1,7 +1,7 @@
 
-https://forum.qubes-os.org/t/split-ssh/19060
+Reference: https://forum.qubes-os.org/t/split-ssh/19060
 
-![[Pasted image 20240710145913.png]]
+![](https://github.com/Qubes-Community/Contents/raw/master/attachment/wiki/split-ssh/diagram.svg)
 
 # Security Benefits
 
