@@ -1,7 +1,7 @@
 # Mother_base
 A reasonably secure base setup for offensive security operations and research.
 
-This set up is based on Qubes OS and heavily focuses on isolation and
+This set up is based on [Qubes OS](https://www.qubes-os.org/intro/) and heavily focuses on isolation and
 compartmentalization. It will give you a solid base to work from using some of Qubes most 
 powerfull features. 
 
