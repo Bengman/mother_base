@@ -1,11 +1,14 @@
 # Mother_base
-A reasonably secure base setup for offensive operations and research.
+A reasonably secure base setup for offensive security operations and research.
 
 This set up is based on Qubes OS and heavily focuses on isolation and
-compartmentalization. It uses minimal air-gapped vm's for 
+compartmentalization. It will give you a solid base to work from using some of Qubes most 
+powerfull features. 
+
+![](https://www.qubes-os.org/attachment/site/qubes-trust-level-architecture.png)
 
 It is roughly the set up I have been using for offensive securiity research and 
-operations.
+operations for a number of years.
 
 # Table of Contents
 1. [Base setup](install_base.md)
@@ -20,6 +23,6 @@ operations.
 Use disposable vm's for as much as possible such as browsing the web and handle untrusted
 files.
 
-This will give you the base setup. You will then need to create vm's suited 
-for your needs such as Windows development machines, secure communication vm's 
-and Kali Linux boxes.
+While this will give you the base setup, you will then need to tailor it to your needs including creating vm's
+such as Windows development machines, secure communication vm's 
+and Kali linux boxes.
