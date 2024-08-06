@@ -1,6 +1,6 @@
-https://mullvad.net/sv/help/qubes-os-4-and-mullvad-vpn
+Reference: https://mullvad.net/sv/help/qubes-os-4-and-mullvad-vpn
 
-Create a new qube
+# Create a new qube
 
 First install the Debian 12 template (if you do not already have it) using the following command in the Terminal Emulator (dom0):
 
@@ -27,7 +27,7 @@ In another AppVM (not MullvadVPN) that you use for web surfing:
     Open the Downloads folder and right click on the downloaded OpenVPN file and select Extract Here.
     Click on the extracted folder and select Copy To Other AppVM... and then enter MullvadVPN as the Target and click on OK. The MullvadVPN ProxyVM will start when you do this.
 
-Install OpenVPN
+# Install OpenVPN
 
 Install OpenVPN in the Debian-12 template so your MullvadVPN ProxyVM can use that.
 
@@ -74,7 +74,7 @@ Enable autostart of OpenVPN
     Click on the Qubes app menu and go to Service: MullvadVPN and open the Terminal.
     Run curl https://am.i.mullvad.net/connected. It should say that you are connected to Mullvad.
 
-Add DNS hijacking rules
+# Add DNS hijacking rules
 
 Now we will add firewall rules to redirect DNS requests to 10.8.0.1 (the DNS on the VPN server) for all AppVMs that use the MullvadVPN ProxyVM.
 
@@ -88,6 +88,7 @@ Still in the MullvadVPN ProxyVM Terminal:
     Copy the text in the text area below and paste it in the bottom of your file.
     Replace 10.137.0.47 with your own vif* IP address that you got before.
 
+```
 # replace 10.137.0.47 with the IP address of your vif* interface
 virtualif=10.137.0.47
 vpndns1=10.8.0.1
@@ -98,7 +99,7 @@ iptables -t mangle -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-m
 iptables -F PR-QBS -t nat
 iptables -A PR-QBS -t nat -d $virtualif -p udp --dport 53 -j DNAT --to $vpndns1
 iptables -A PR-QBS -t nat -d $virtualif -p tcp --dport 53 -j DNAT --to $vpndns1
-
+```
     5. Press Ctrl+O (Enter) and then Ctrl+X to save and exit.
 Add qube firewall rules
 
