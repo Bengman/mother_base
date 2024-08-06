@@ -52,9 +52,6 @@ $ pass git init
 in dom0 edit /etc/qubes-rpc/policy/qubes.Gpg and put the following at the top of the file
 vault gpg-vault allow
 
-(qubes 4.1)
-TODO
-
 Fix for qube unable to start uxterm.
 `sudo apt install locales-all` in template
 
