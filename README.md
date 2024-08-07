@@ -7,8 +7,9 @@ powerfull features.
 
 ![](https://www.qubes-os.org/attachment/site/qubes-trust-level-architecture.png)
 
-It is roughly the set up I have been using for offensive securiity research and 
-operations for a number of years.
+![](http://2.bp.blogspot.com/-llpRcqX8oBw/ToQpuLMy_HI/AAAAAAAAAJo/3pZ1S-qHupA/s1600/qubes-adv-config.png)
+
+The above images are from the Qubes project and will give you an idea of how a set up could look. 
 
 # Table of Contents
 1. [Base setup](install_base.md)
