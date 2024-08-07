@@ -1,0 +1,12 @@
+**SSH-keys**
+Isolating SSH-keys means that even an attacker who manages to gain access to the `ssh-client` VM will not be able to obtain the user’s private key since it is simply not there. Rather, the private key remains in the `vault` VM, which is extremely unlikely to be compromised if nothing is ever copied or transferred into it. In order to gain access to the vault VM, the attacker would require the use of, e.g., a general Xen VM escape exploit or a signed, compromised package which is already installed in the TemplateVM upon which the vault VM is based.
+
+**GPG-keys**
+
+It is often thought that the use of smart cards for private key storage guarantees ultimate safety. While this might be true (unless the attacker can find a usually-very-expensive-and-requiring-physical-presence way to extract the key from the smart card) but only with regards to the safety of the private key itself. However, there is usually nothing that could stop the attacker from requesting the smart card to perform decryption of all the user documents the attacker has found or need to decrypt. In other words, while protecting the user’s private key is an important task, we should not forget that ultimately it is the user data that are to be protected and that the smart card chip has no way of knowing the requests to decrypt documents are now coming from the attacker’s script and not from the user sitting in front of the monitor. (Similarly the smart card doesn’t make the process of digitally signing a document or a transaction in any way more secure – the user cannot know what the chip is really signing. Unfortunately this problem of signing reliability is not solvable by Split GPG.)
+
+With Qubes Split GPG this problem is drastically minimized, because each time the key is to be used the user is asked for consent (with a definable time out, 5 minutes by default), plus is always notified each time the key is used via a tray notification from the domain where GPG backend is running. This way it would be easy to spot unexpected requests to decrypt documents.
+
+**Passwords**
+
+Using a password manager vault that is a completely offline, network-isolated qube where we use a offline password manager, to store all of our usernames and passwords dramatically reduces the risk of our passwords getting compromised. We then use uses the [secure copy and paste](https://www.qubes-os.org/doc/how-to-copy-and-paste-text/) system to quickly copy credentials into other qubes.
