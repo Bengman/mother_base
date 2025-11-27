@@ -4,7 +4,7 @@ This set up will use PGP multiple encryption jobs, such as encrypting passwords 
 
 This guide will show how to use Qubes [split-GPG](https://www.qubes-os.org/doc/split-gpg/) feature to securely handle encrypting and decrypting stuff using a air-gapped private PGP-key.
 
-![[Pasted image 20240710145419.png]]
+![](img/split-gpg.png)
 
 ## Advantages of Split GPG vs. traditional GPG with a smart card
 It is often thought that the use of smart cards for private key storage guarantees ultimate safety. While this might be true (unless the attacker can find a usually-very-expensive-and-requiring-physical-presence way to extract the key from the smart card) but only with regards to the safety of the private key itself. However, there is usually nothing that could stop the attacker from requesting the smart card to perform decryption of all the user documents the attacker has found or need to decrypt. In other words, while protecting the user’s private key is an important task, we should not forget that ultimately it is the user data that are to be protected and that the smart card chip has no way of knowing the requests to decrypt documents are now coming from the attacker’s script and not from the user sitting in front of the monitor. (Similarly the smart card doesn’t make the process of digitally signing a document or a transaction in any way more secure – the user cannot know what the chip is really signing. Unfortunately this problem of signing reliability is not solvable by Split GPG.)

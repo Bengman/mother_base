@@ -11,7 +11,7 @@ and make sure your hardware is supported correctly.
 1. Go to the official Qubes web site and download ISO from https://www.qubes-os.org/downloads/
 
 
-![[/img/qubes_download.png]]
+![](img/qubes_download.png)
 ## Verifying signatures
 
 The Qubes OS Project uses [digital signatures](https://en.wikipedia.org/wiki/Digital_signature) to guarantee the authenticity and integrity of certain important assets. This page explains how to verify those signatures. It is extremely important for your security to understand and apply these practices.
@@ -96,7 +96,7 @@ gpg: 2 good signatures
 
 Download the signature file from https://mirrors.edge.kernel.org/qubes/iso/Qubes-R4.3.0-rc3-x86_64.iso.DIGESTS
 
-![[/img/qubes_signatures.png]]
+![](img/qubes_signatures.png)
 `wget https://mirrors.edge.kernel.org/qubes/iso/Qubes-R4.3.0-rc3-x86_64.iso.DIGESTS`
 
 Verify that the file is legit:
