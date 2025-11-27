@@ -1,58 +1,43 @@
-# Set up pass vault with split-gpg
-
-1. Download debian minimal template
-```sudo qubes-dom0-update qubes-template-debian-12-minimal```
-
-2. Configure passwordless root in template
-```[user@dom0 ~]$ qvm-run -u root <DISTRO_NAME>-<RELEASE_NUMBER>-minimal xterm```
-
-```apt install qubes-core-agent-passwordless-root```
-
-(and for you who just jumped out of their chairs: https://www.qubes-os.org/doc/vm-sudo/)
+# Set up a minimal pass vault with split-gpg
+(this assumes you have already set up a PGP-vault in step 2.)
 
 
-3. install required tools in template
+1. Install required tools in template
 ```sudo apt install qubes-gpg-split pass vim git```
 
-
-4. In dom0, make sure the qubes-gpg-split-dom0 package is installed.
-```sudo qubes-dom0-update qubes-gpg-split-dom0```
-
-5. create two new qubes, vault and gpg-vault based on that template
+2. create a new qube, vault based on the debian 13 minimal template
 ```qvm-create --template=debian-11-minimal --label=black vault```
 
-```qvm-create --template=debian-11-minimal --label=black gpg-vault```
-
-also set their netvm to none
+Also set their netvm to none
 ```qvm-prefs vault netvm none```
-```qvm-prefs gpg-vault netvm none```
 
-6. Configure vault to use split-gpg
+3. Configure vault to use split-gpg
 ```echo "export QUBES_GPG_DOMAIN=gpg-vault" >> ~/.profile```
 
-7. Create gpg key in gpg-vault
-```gpg2 --full-generate-key```
+4. Initialize password store on vault domain
 
-create for email user@vault.local
-set an empty passphrase
+`mkdir -p ~/.password-store/.extensions
 
-8. Initialize password store on vault domain
-```
-$ mkdir -p ~/.password-store/.extensions
-$ cd ~/.password-store/.extensions
-$ copy https://raw.githubusercontent.com/kulinacs/pass-qubes/master/qubes.bash
-$ chmod +x ~/.password-store/.extensions/qubes.bash
-$ echo "export PASSWORD_STORE_ENABLE_EXTENSIONS=true" >> ~/.profile
-$
-$ pass qubes init user@vault.local
-$ pass git init
-```
+`cd ~/.password-store/.extensions
 
-9. Add qrexec policy to remove prompts (qubes 4.0)
+copy https://raw.githubusercontent.com/kulinacs/pass-qubes/master/qubes.bash
+
+`chmod +x ~/.password-store/.extensions/qubes.bash
+
+`echo "export PASSWORD_STORE_ENABLE_EXTENSIONS=true" >> ~/.profile
+
+`pass qubes init user@vault.local
+
+`pass git init
+
+
+5. Add qrexec policy to remove prompts (qubes 4.0)
 in dom0 edit /etc/qubes-rpc/policy/qubes.Gpg and put the following at the top of the file
 vault gpg-vault allow
 
+
 Fix for qube unable to start uxterm.
+
 `sudo apt install locales-all` in template
 
 
