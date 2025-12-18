@@ -9,7 +9,7 @@
 - [Step 4 - Set up MFA with Yubikey](yubikey_setup.md)
 - [Step 5 - Securing data in transit using a VPN Qube](vpn_qube_mullvad.md) 
 - [Step 6 - Creating a secure administrative host with Split-SSH](split_ssh.md)
-- [Step 7 - Pentesting templates(todo)]()
+- [Step 7 - Pentesting templates](pentest_template.md)
 - [Step 8 - Windows 11 templates(todo)]()
 - [Security considerations]()
     - [Hypervisor security considerations](hypervisor_security.md)
